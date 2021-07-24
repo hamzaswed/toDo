@@ -1,0 +1,334 @@
+/* *start css global rules */
+
+:root {
+  --background-color: #013965;
+  --secound-color: #ffc107;
+  --font-color: #67abd2;
+  --main-font-size: 20px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+/* contaienr rules */
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) {
+  .container {
+    width: 576px;
+  }
+}
+
+/* *end css global rules */
+
+/* *start header */
+
+.container .header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: var(--font-color);
+}
+
+.container .header p {
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/** end header */
+
+/* *start date section */
+
+.container .date {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--secound-color);
+  font-size: var(--main-font-size);
+}
+
+/* !this for test */
+.container .date .dayDate h4 {
+  margin: 0;
+  flex-grow: 3;
+  word-spacing: 5px;
+}
+
+/* *end date section */
+
+/* *start userInfo section */
+
+.container .userInfo {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.container .userInfo .name {
+  color: var(--font-color);
+  margin: 0;
+  word-spacing: 4px;
+}
+
+.container .userInfo .taskNum p {
+  margin: 0;
+  margin-left: 10px;
+  font-size: var(--main-font-size);
+}
+
+/* *end userInfo section */
+
+/* *start tasksCont section */
+
+.container .tasksCont {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: transparent;
+  height: calc(100vh - 57.2px - 52.4px - 52.4px - 172.4px);
+  position: relative;
+  overflow-y: scroll;☺ 
+
+}
+
+.container .tasksCont::-webkit-scrollbar {
+  display: none;
+}
+
+/* *end tasksCont section */
+
+/* *start task section */
+
+.container .taskSection {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.container .taskSection .task {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  background-color: #ffffff47;
+  margin: auto;
+  border-radius: 10px;
+  font-size: var(--main-font-size);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 450px) {
+  .container .taskSection .task {
+    width: 90%;
+  }
+}
+
+.container .taskSection .task::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff2b;
+  z-index: -100;
+  transition: 0.5s;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.container .taskSection .task:hover.task::after {
+  opacity: 1;
+}
+
+.container .taskSection .task .trash {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 25%;
+}
+
+.container .taskSection .task .trash .hour {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.container .taskSection .task .trash i {
+  color: var(--font-color);
+  transition: 0.5s;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.container .taskSection .task .trash i:hover {
+  color: blue;
+  margin-bottom: 1px;
+}
+
+.container .taskSection .task:hover.task .trash i {
+  color: #ff0000b5;
+}
+
+.container .taskSection .task .checkBox {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  position: relative;
+}
+
+.container .taskSection .task .checkBox i {
+  color: var(--font-color);
+  transition: 0.5s;
+  position: absolute;
+}
+
+.container .taskSection .task:hover.task .checkBox i {
+  color: var(--background-color);
+  left: 5px;
+  font-size: 23px;
+}
+
+.container .taskSection .task .checkBox input {
+  display: none;
+}
+
+.container
+  .taskSection
+  .task
+  .checkBox
+  input[type="checkbox"]:checked
+  + label::before {
+  display: block;
+}
+
+.container .taskSection .task .checkBox input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #00000087;
+}
+
+.container .taskSection .task .checkBox label {
+  position: relative;
+  margin-left: 55px;
+}
+
+.container .taskSection .task .checkBox label::after {
+  content: "";
+  position: absolute;
+  width: 22.4px;
+  height: 22.4px;
+  background-color: var(--background-color);
+  left: -31px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--font-color);
+  border-radius: 4px;
+}
+
+.container .taskSection .task .checkBox label::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  color: var(--secound-color);
+  display: none;
+}
+
+/* *end task section */
+
+/* *start addSection */
+
+.container .addSection {
+
+}
+
+.container .addSection .options {
+  width: 100%;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--main-font-size);
+  color: var(--font-color);
+  position: relative;
+}
+
+.container .addSection .options .addBut {
+  font-size: calc(var(--main-font-size) + 10px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secound-color);
+  color: var(--background-color);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+/* *end addSection */
+
+/* *start taskcont input */
+.container .addSection .tasksInput{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:15px ;
+  padding-bottom:15px ;
+}
+.container .addSection .tasksInput input {
+  width: 80%;
+  padding: 15px 10px;
+  background-color: #dcdcdcab;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  z-index: 1000;
+}
+
+@media (max-width: 450px) {
+  .container .addSection .tasksInput input {
+    width: 90%;
+  }
+}
+
+.container .addSection .tasksInput input:focus {
+  outline: none;
+}
+
+.container .addSection .tasksInput input::placeholder {
+  color: black;
+  font-size: 17px;
+}
+/* *end taskcont input */
